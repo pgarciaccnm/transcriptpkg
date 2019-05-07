@@ -1,0 +1,46 @@
+<messaging:emailTemplate subject="Order Receipt" recipientType="Contact" relatedToType="Contact">
+    <messaging:htmlEmailBody >
+        <body style="font-family: 'Arial'">
+            <table  width="100%">
+            <tr>
+            <td  width="50%"><h2>
+                Order Receipt</h2>
+            </td>
+            <td align="right"><apex:image url="https://www.ccnm.edu/sites/default/files/CCNM_logo-MAIN_WEB.png" height="50%" /></td></tr>
+            </table>
+            
+            <hr style="border: solid thin #7a9a01 ; margin-top: 1px;" />
+            <br />
+            <table cellpadding="5" style="border-collapse: collapse" width="100%">
+                <tr>
+                    <td align="right" valign="top"
+                        style="border-right-style: solid; border-right-width: thin; border-right-color: #7a9a01;" 
+                        width="10%">
+                        Name
+                    </td>
+                    <td width="80%">
+                        <b>{!relatedTo.Name}</b>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td align="right" valign="top"
+                        style="border-right-style: solid; border-right-width: thin; border-right-color: #0099CC;" 
+                        width="10%">
+                        Address
+                    </td>
+                    <td width="80%">
+                        <b>{!relatedTo.MailingStreet}</b><br />
+                        <b>{!relatedTo.MailingCity},&nbsp;{!relatedTo.MailingState},&nbsp;{!relatedTo.MailingPostalCode},&nbsp;{!relatedTo.MailingCountry}</b><br />
+                    </td>
+                </tr>
+            </table>
+            <br />
+         <c:CCNM_ORDER_DETAIL AcctId="{!relatedTo.AccountId}"/>
+         <p> Transcripts will be processed within five (5) business days of the request and payment received.   Please account for any transit time based on the mailing/shipping method selected in addition to the five (5) day processing time.</p>
+         <p><a href="https://www.ccnm.edu/term-of-use">Term of Use</a></p>
+         <p><a href="https://www.ccnm.edu/refund-policy">Refund Policy</a></p>
+        
+        </body>
+    </messaging:htmlEmailBody>
+</messaging:emailTemplate>

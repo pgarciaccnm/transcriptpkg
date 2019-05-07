@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AuraDefinitionBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>46.0</apiVersion>
+    <description>It allows updating the Tracking Number field in the line. It can only be used as Case Related List because of using the case_id to load the orders</description>
+</AuraDefinitionBundle>

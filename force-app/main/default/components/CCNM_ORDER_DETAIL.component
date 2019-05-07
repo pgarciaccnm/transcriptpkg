@@ -1,0 +1,56 @@
+<apex:component controller="CCNMOrderDetails" access="global">
+    <apex:attribute name="AcctId" type="Id" description="Id of the account" assignTo="{!accountId}"/>
+
+    <table class="CCNMOrderDetail Case" >
+        <tr>
+            <td>Reference Number&nbsp;<strong>{!case[0].CaseNumber}</strong></td>                
+        </tr>
+   
+    </table>
+    <table cellpadding="5" style="border-collapse: collapse" width="100%">
+        <apex:variable var="count" value="1" />
+        <apex:repeat value="{!orders}" var="or">
+            
+
+            <tr>
+                <td><strong>Order Number:</strong>&nbsp;{!or.OrderNumber} </td>                
+            </tr>
+
+
+            <tr>
+                    <td width="80%" style="background-color: #7a9a01; color: #FFFFFF"><strong>Request&nbsp;<apex:outputText value="{!count}"></apex:outputText> </strong></td>
+                <td  align="right" width="80%" style="background-color: #7a9a01; color: #FFFFFF"><strong>Price</strong></td>
+            </tr>
+            <apex:repeat value="{!or.OrderItems}" var="orli">
+                <tr>
+
+                    <td>{!orli.Product2.Name}</td>
+
+                    <td align="right">{!orli.TotalPrice}</td>
+                </tr>
+
+            </apex:repeat>
+            <apex:outputPanel id="mailing" rendered="{!IF(or.ShippingStreet == '', false, true)}">
+                <tr><td>
+                    <table>
+                        <tr><td valign="top">Deliver to: </td><td>Institution:&nbsp;{!or.Shipping_Institution__c}<br />
+                            Attention:&nbsp;{!or.Shipping_Attention__c}
+                            </td></tr>
+                        <tr><td valign="top">Address:</td>
+                            <td>{!or.ShippingStreet}<br />{!or.ShippingCity},&nbsp;{!or.ShippingState},&nbsp;{!or.ShippingPostalCode},&nbsp;{!or.ShippingCountry}</td></tr>
+                    </table>
+                    </td></tr>
+            </apex:outputPanel>
+            <tr style="border-top-style: solid; border-top-width: thin; border-top-color: #000000; border-bottom-style: solid; border-bottom-width: thin; border-bottom-color: #000000;">
+                <td><strong>Sub Total:</strong> </td>   
+                <td align="right">{!or.TotalAmount}</td>
+            </tr>
+		<apex:variable value="{!VALUE(count) + 1}" var="count" />
+        </apex:repeat>    
+        <tr class="tr-total">
+            <td><strong>Total</strong></td>
+            <td  align="right"><strong><apex:outputText value="{!GranTotal}"></apex:outputText></strong></td></tr>
+    </table>
+    
+    
+</apex:component>
