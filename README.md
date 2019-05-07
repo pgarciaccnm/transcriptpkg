@@ -1,9 +1,9 @@
-# SFDX App
+# Trasnscript Request App
 
-## Dev, Build and Test
+## CCNM 2019
 
 ## Resources
 
-## Description of Files and Directories
+## The transcript project allows the student to request the transcript and prerequisites through a digital page.
 
 ## Issues
