@@ -9,7 +9,8 @@
 ## All Visualsalesforce classes and pages, Triggers, Lightning and Aura components are located on this pakcage.
 
 Deploy Transcript:
-Transcript Record page: must be assigned to CCNM profiles.
+<ul><li>
+  Transcript Case Record page: must be assigned to CCNM profiles.</li></ul>
 Update the Record Type ID in the Process Building
 Add Order Status: 
 Open	Draft	Draft	Assigned dynamically	Pedro Garcia, 16/05/2019 11:47 AM
